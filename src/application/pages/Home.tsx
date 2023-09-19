@@ -1,6 +1,6 @@
 import {ProcesosElectoraisLista} from "../components/procesos-electorais/ProcesosElectoraisLista";
 
-export function Dashboard() {
+export function Home() {
     return (
         <ProcesosElectoraisLista />
     );

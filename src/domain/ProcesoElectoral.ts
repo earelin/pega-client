@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {getProcesosElectorais} from "../infrastructure/pega/ProcesosElectoraisRepository";
+import {getProcesoElectoral, getProcesosElectorais} from "../infrastructure/pega/ProcesosElectoraisRepository";
 import {DateTime} from "luxon";
 
 export interface ProcesoElectoral {
@@ -55,7 +55,7 @@ export const TiposProcesoElectoral: Map<TipoProcesoElectoralId, TipoProcesoElect
     }]
 ]);
 
-export function useProcesoElectoralStore() {
+export function useProcesosElectoraisStore() {
     const [procesos, setProcesos] = useState<ProcesoElectoral[]>([]);
 
     const fetchProcesos = async () => {
@@ -70,3 +70,19 @@ export function useProcesoElectoralStore() {
 
     return [procesos];
 }
+
+export function useProcesoElectoralStore(id: number) {
+    const [proceso, setProceso] = useState<ProcesoElectoral | null>(null);
+
+    const fetchProcesos = async (id: number) => {
+        setProceso(await getProcesoElectoral(id));
+    }
+
+    useEffect(() => {
+        fetchProcesos(id)
+            .catch(error => console.error(error));
+    }, []);
+
+    return [proceso];
+}
+
