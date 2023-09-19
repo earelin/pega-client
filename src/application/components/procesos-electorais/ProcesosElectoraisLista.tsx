@@ -7,13 +7,13 @@ import {Link} from "react-router-dom";
 import {List, ListItem} from "@mui/material";
 
 export function ProcesosElectoraisLista() {
-    const [procesos] = useProcesosElectoraisStore();
+    const {data} = useProcesosElectoraisStore();
 
     return (
         <>
             <h1>Resultados de Procesos Electorais</h1>
             <List>
-                {procesos.map((proceso, index) => (
+                {data?.map((proceso, index) => (
                     <ListItem key={index}><Link to={`proceso-electoral/${proceso.id}`}>{extractTipoName(proceso.tipo)} {proceso.data.toLocaleString()}</Link></ListItem>
                 ))}
             </List>

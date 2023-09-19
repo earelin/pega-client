@@ -1,6 +1,8 @@
 import {useEffect, useState} from "react";
-import {getProcesoElectoral, getProcesosElectorais} from "../infrastructure/pega/ProcesosElectoraisRepository";
+import {findProcesoElectoral, findProcesosElectorais} from "../infrastructure/pega/ProcesosElectoraisRepository";
 import {DateTime} from "luxon";
+import {useQuery} from "@tanstack/react-query";
+import {restClientGet} from "../infrastructure/client/RestClient";
 
 export interface ProcesoElectoral {
     id: number;
@@ -56,26 +58,17 @@ export const TiposProcesoElectoral: Map<TipoProcesoElectoralId, TipoProcesoElect
 ]);
 
 export function useProcesosElectoraisStore() {
-    const [procesos, setProcesos] = useState<ProcesoElectoral[]>([]);
-
-    const fetchProcesos = async () => {
-        const procesosList = await getProcesosElectorais();
-        setProcesos(procesosList);
-    }
-
-    useEffect(() => {
-        fetchProcesos()
-            .catch(error => console.error(error));
-    }, [])
-
-    return [procesos];
+    return useQuery({
+        queryKey: ['procesos-electorais'],
+        queryFn: findProcesosElectorais,
+    });
 }
 
 export function useProcesoElectoralStore(id: number) {
     const [proceso, setProceso] = useState<ProcesoElectoral | null>(null);
 
     const fetchProcesos = async (id: number) => {
-        setProceso(await getProcesoElectoral(id));
+        setProceso(await findProcesoElectoral(id));
     }
 
     useEffect(() => {
