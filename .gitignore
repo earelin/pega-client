@@ -155,3 +155,4 @@ yarn-error.log*
 # IDEs
 .idea/
 .vscode/
+junit.xml

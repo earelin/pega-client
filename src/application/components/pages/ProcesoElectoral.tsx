@@ -1,5 +1,5 @@
 import {Link, useParams} from "react-router-dom";
-import {useProcesoElectoralStore} from "../../domain/ProcesoElectoral";
+import {useProcesoElectoralStore} from "../../../domain/ProcesoElectoral";
 
 export function ProcesoElectoral() {
     const {id} = useParams<"id">() as unknown as {id: number};
