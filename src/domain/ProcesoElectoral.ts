@@ -1,8 +1,6 @@
-import {useEffect, useState} from "react";
 import {findProcesoElectoral, findProcesosElectorais} from "../infrastructure/pega/ProcesosElectoraisRepository";
 import {DateTime} from "luxon";
 import {useQuery} from "@tanstack/react-query";
-import {restClientGet} from "../infrastructure/client/RestClient";
 
 export interface ProcesoElectoral {
     id: number;

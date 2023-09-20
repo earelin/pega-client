@@ -1,6 +1,5 @@
 import {ProcesoElectoral} from "../../domain/ProcesoElectoral";
 import {DateTime} from "luxon";
-import {useQuery, UseQueryResult} from "@tanstack/react-query";
 import {restClientGet} from "../client/RestClient";
 
 const listUrl = process.env.REACT_APP_PEGA_API_URL + '/procesos-electorais';
