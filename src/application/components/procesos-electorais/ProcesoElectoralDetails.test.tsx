@@ -39,6 +39,14 @@ describe('ProcesoElectoralDetails Component', () => {
         expect(screen.queryByText(/Ámbito:\s*12/))
             .toBeNull();
     });
+
+    test('should show higher level common data', () => {
+        when(useProcesoElectoralStore)
+            .calledWith(1)
+            .mockReturnValue(PROCESO_ELECTORAL_WITHOUT_AMBITO);
+
+        render(<BrowserRouter><ProcesoElectoralDetails id={1} /></BrowserRouter>);
+    })
 });
 
 const PROCESO_ELECTORAL_WITH_AMBITO = {
