@@ -5,7 +5,7 @@ import {useQuery} from "@tanstack/react-query";
 export interface ProcesoElectoral {
     id: number;
     tipo: 'REFERENDUM' | 'XERAIS' | 'CONGRESO' | 'SENADO' | 'MUNICIPAIS' | 'AUTONOMICAS' | 'CABILDOS_INSULARES' | 'PARLAMENTO_EUROPEU' | 'PARTIDOS_XUDICIAIS_E_DIPUTACIONS_PROVINCIAIS';
-    ambito: number;
+    ambito: number | null;
     data: DateTime;
 }
 

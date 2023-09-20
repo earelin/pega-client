@@ -14,7 +14,7 @@ export function ProcesosElectoraisLista() {
             <h1>Resultados de Procesos Electorais</h1>
             <List>
                 {data?.map((proceso, index) => (
-                    <ListItem key={index}><Link to={`proceso-electoral/${proceso.id}`}>{extractTipoName(proceso.tipo)} {proceso.data.toLocaleString()}</Link></ListItem>
+                    <ListItem key={index}><Link to={`proceso-electoral/${proceso.id}`}>{extractTipoName(proceso.tipo)} {proceso.data.toFormat("d/M/y")}</Link></ListItem>
                 ))}
             </List>
         </>
