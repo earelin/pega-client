@@ -12,5 +12,6 @@ export interface ResultadosElectorais {
 
 export interface ResultadosCandidatura {
     candidatura: Candidatura;
+    representantesEleitos: number;
     votos: number;
 }
