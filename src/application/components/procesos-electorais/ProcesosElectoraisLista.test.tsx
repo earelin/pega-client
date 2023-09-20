@@ -4,11 +4,10 @@ import {UseQueryResult} from "@tanstack/react-query";
 import {DateTime} from "luxon";
 import React from "react";
 import {BrowserRouter} from "react-router-dom";
-
-jest.mock("../../../domain/ProcesoElectoral");
-
 import {ProcesoElectoral, useProcesosElectoraisStore} from "../../../domain/ProcesoElectoral";
 import {ProcesosElectoraisLista} from "./ProcesosElectoraisLista";
+
+jest.mock("../../../domain/ProcesoElectoral");
 
 describe('ProcesosElectoraisLista Component', () => {
     test('should show list', () => {
@@ -16,9 +15,7 @@ describe('ProcesosElectoraisLista Component', () => {
             .calledWith()
             .mockReturnValue(PROCESOS_ELECTORAIS);
 
-        render(<BrowserRouter>
-                <ProcesosElectoraisLista />
-            </BrowserRouter>);
+        render(<BrowserRouter><ProcesosElectoraisLista /></BrowserRouter>);
 
         expect(screen.getByText(/Municipais\s*21\/11\/2021/))
             .not.toBeNull();
