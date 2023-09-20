@@ -65,17 +65,8 @@ export function useProcesosElectoraisStore() {
 }
 
 export function useProcesoElectoralStore(id: number) {
-    const [proceso, setProceso] = useState<ProcesoElectoral | null>(null);
-
-    const fetchProcesos = async (id: number) => {
-        setProceso(await findProcesoElectoral(id));
-    }
-
-    useEffect(() => {
-        fetchProcesos(id)
-            .catch(error => console.error(error));
-    }, []);
-
-    return [proceso];
+    return useQuery({
+        queryKey: ['proceso-electoral', id],
+        queryFn: () => findProcesoElectoral(id),
+    });
 }
-

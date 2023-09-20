@@ -27,8 +27,8 @@ export async function findProcesoElectoral(id: number): Promise<ProcesoElectoral
         return null;
     }
 
-    return ({
+    return {
         ...dao,
         data: DateTime.fromISO(dao.data)
-    } as ProcesoElectoral);
+    } as ProcesoElectoral;
 }
