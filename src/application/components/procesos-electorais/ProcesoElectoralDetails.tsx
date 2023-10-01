@@ -3,12 +3,12 @@ import {
 } from "../../../domain/ProcesoElectoral";
 
 export function ProcesoElectoralDetails(props: {id: number}) {
-    const {data} = useProcesoElectoralStore(props.id);
+    const {data: procesoElectoral} = useProcesoElectoralStore(props.id);
 
     return (
         <>
-            <h1>{data?.tipo.nome}: {data?.data.toFormat("d/M/y")}</h1>
-            {data?.tipo.id === 7 && <p>Ámbito: {data?.ambito}</p>}
+            <h1>{procesoElectoral?.tipo.nome}: {procesoElectoral?.data.toFormat("d/M/y")}</h1>
+            {procesoElectoral?.ambito ? <p>Ámbito: {procesoElectoral?.ambito}</p> : null}
         </>
     );
 }
