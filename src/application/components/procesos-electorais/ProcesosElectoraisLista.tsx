@@ -5,7 +5,6 @@ import {
 } from "../../../domain/ProcesoElectoral";
 import {Link} from "react-router-dom";
 import {List, ListItem} from "@mui/material";
-import react from "react"
 
 export function ProcesosElectoraisLista() {
     const {data} = useProcesosElectoraisStore();
