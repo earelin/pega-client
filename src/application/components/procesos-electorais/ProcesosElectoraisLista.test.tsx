@@ -28,13 +28,19 @@ const PROCESOS_ELECTORAIS = {
     data: [
         {
             id: 1,
-            tipo: "MUNICIPAIS",
+            tipo: {
+                id: 1,
+                nome: "Municipais"
+            },
             ambito: null,
             data: DateTime.fromISO("2021-11-21T00:00:00.000Z")
         },
         {
             id: 2,
-            tipo: "AUTONOMICAS",
+            tipo: {
+                id: 7,
+                nome: "Autonómicas"
+            },
             ambito: 12,
             data: DateTime.fromISO("2022-06-17T00:00:00.000Z")
 

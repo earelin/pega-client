@@ -3,6 +3,7 @@ import './App.css';
 import {Home} from "./pages/Home";
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import {ProcesoElectoral} from "./pages/ProcesoElectoral";
+import {AppBar, Container, Toolbar, Typography} from "@mui/material";
 
 const router = createBrowserRouter([
   {
@@ -16,7 +17,20 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />
+  return <>
+    <AppBar position="static">
+      <Container>
+        <Toolbar>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            PEGA
+          </Typography>
+        </Toolbar>
+      </Container>
+    </AppBar>
+    <Container>
+      <RouterProvider router={router} />
+    </Container>
+  </>
 }
 
 export default App;

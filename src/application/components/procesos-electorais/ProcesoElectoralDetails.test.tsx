@@ -17,9 +17,7 @@ describe('ProcesoElectoralDetails Component', () => {
 
         render(<BrowserRouter><ProcesoElectoralDetails id={2} /></BrowserRouter>);
 
-        expect(screen.getByText(/Data:\s*17\/6\/2022/))
-            .not.toBeNull();
-        expect(screen.getByText(/Tipo:\s*Autonómicas/))
+        expect(screen.getByText(/Autonómicas:\s*17\/6\/2022/))
             .not.toBeNull();
         expect(screen.getByText(/Ámbito:\s*12/))
             .not.toBeNull();
@@ -32,9 +30,7 @@ describe('ProcesoElectoralDetails Component', () => {
 
         render(<BrowserRouter><ProcesoElectoralDetails id={1} /></BrowserRouter>);
 
-        expect(screen.getByText(/Data:\s*25\/4\/2023/))
-            .not.toBeNull();
-        expect(screen.getByText(/Tipo:\s*Congreso/))
+        expect(screen.getByText(/Congreso:\s*25\/4\/2023/))
             .not.toBeNull();
         expect(screen.queryByText(/Ámbito:\s*12/))
             .toBeNull();
@@ -52,7 +48,10 @@ describe('ProcesoElectoralDetails Component', () => {
 const PROCESO_ELECTORAL_WITH_AMBITO = {
     data: {
         id: 2,
-        tipo: "AUTONOMICAS",
+        tipo: {
+            id: 7,
+            nome: "Autonómicas"
+        },
         ambito: 12,
         data: DateTime.fromISO("2022-06-17T00:00:00.000Z")
     }
@@ -61,7 +60,10 @@ const PROCESO_ELECTORAL_WITH_AMBITO = {
 const PROCESO_ELECTORAL_WITHOUT_AMBITO = {
     data: {
         id: 1,
-        tipo: "CONGRESO",
+        tipo: {
+            id: 1,
+            nome: "Congreso"
+        },
         ambito:null,
         data: DateTime.fromISO("2023-04-25T00:00:00.000Z")
     }

@@ -1,4 +1,4 @@
-import {ProcesoElectoral} from "../../domain/ProcesoElectoral";
+import {ProcesoElectoral, TipoProcesoElectoral} from "../../domain/ProcesoElectoral";
 import {DateTime} from "luxon";
 import {restClientGet} from "../client/RestClient";
 
@@ -7,7 +7,7 @@ const entityUrl = process.env.REACT_APP_PEGA_API_URL + '/proceso-electoral';
 
 interface ProcesoElectoralDao {
     id: number;
-    tipo: string;
+    tipo: TipoProcesoElectoral;
     ambito: number;
     data: string;
 }
@@ -30,4 +30,8 @@ export async function findProcesoElectoral(id: number): Promise<ProcesoElectoral
         ...dao,
         data: DateTime.fromISO(dao.data)
     } as ProcesoElectoral;
+}
+
+export async function findProcesoElectoralTipos() {
+    return restClientGet<TipoProcesoElectoral[]>(`${listUrl}/tipos`);
 }
