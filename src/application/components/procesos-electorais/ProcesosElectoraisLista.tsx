@@ -5,6 +5,7 @@ import {
 } from "../../../domain/ProcesoElectoral";
 import {Link} from "react-router-dom";
 import {List, ListItem} from "@mui/material";
+import react from "react"
 
 export function ProcesosElectoraisLista() {
     const {data} = useProcesosElectoraisStore();
@@ -13,8 +14,12 @@ export function ProcesosElectoraisLista() {
         <>
             <h1>Resultados de Procesos Electorais</h1>
             <List>
-                {data?.map((proceso, index) => (
-                    <ListItem key={index}><Link to={`proceso-electoral/${proceso.id}`}>{extractTipoName(proceso.tipo)} {proceso.data.toFormat("d/M/y")}</Link></ListItem>
+                {data?.map(proceso => (
+                    <ListItem key={proceso.id}>
+                        <Link to={`proceso-electoral/${proceso.id}`}>
+                            {extractTipoName(proceso.tipo)} {proceso.data.toFormat("d/M/y")}
+                        </Link>
+                    </ListItem>
                 ))}
             </List>
         </>

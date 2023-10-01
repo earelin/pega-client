@@ -1,4 +1,4 @@
-import {ProcesoElectoralDetails} from "../procesos-electorais/ProcesoElectoralDetails";
+import {ProcesoElectoralDetails} from "../components/procesos-electorais/ProcesoElectoralDetails";
 import {useParams} from "react-router-dom";
 
 export function ProcesoElectoral() {

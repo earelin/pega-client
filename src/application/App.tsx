@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
-import {Home} from "./components/pages/Home";
+import {Home} from "./pages/Home";
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
-import {ProcesoElectoral} from "./components/pages/ProcesoElectoral";
+import {ProcesoElectoral} from "./pages/ProcesoElectoral";
 
 const router = createBrowserRouter([
   {
