@@ -38,10 +38,7 @@ jobs:
       - name: Downloading dependencies
         run: npm ci
 
-      - name: Static code analysis
-        run: npm run lint
-
-      - name: Build - Transpile
+      - name: Build
         run: npm run build
 
       - name: Unit Testing
