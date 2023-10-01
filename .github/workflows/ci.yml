@@ -46,9 +46,7 @@ jobs:
 
       - name: Unit Testing
         run: npm run test:ci
-      - name: Unit Testing - Report
-        uses: mikepenz/action-junit-report@v3
-        if: always()
-        with:
-          check_name: Unit Testing
-          report_paths: 'junit.xml'
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
