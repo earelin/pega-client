@@ -3,7 +3,7 @@ import './App.css';
 import {Home} from "./pages/Home";
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import {ProcesoElectoral} from "./pages/ProcesoElectoral";
-import {AppBar, Container, Toolbar, Typography} from "@mui/material";
+import {AppBar, Box, Container, CssBaseline, Toolbar, Typography} from "@mui/material";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +18,7 @@ const router = createBrowserRouter([
 
 function App() {
   return <>
+    <CssBaseline />
     <AppBar position="static">
       <Container>
         <Toolbar>

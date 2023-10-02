@@ -2,10 +2,10 @@ import {
     useProcesoElectoralStore
 } from "../../../domain/ProcesoElectoral";
 import {DatosXeraisProcesoElectoral} from "../DatosXeraisProcesoElectoral";
-import {ResutadosXerais} from "../ResutadosXerais";
+import {ResutadosXerais} from "../resultados/ResutadosXerais";
 import {Stack, Typography} from "@mui/material";
 import React from "react";
-import {ResultadosCandidaturas} from "../ResultadosCandidaturas";
+import {ResultadosCandidaturas} from "../resultados/ResultadosCandidaturas";
 
 export function ProcesoElectoralDetails(props: {id: number}) {
     const {data: procesoElectoral} = useProcesoElectoralStore(props.id);

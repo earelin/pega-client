@@ -1,11 +1,13 @@
 import {Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@mui/material";
-import {useResultadosCandidaturasStore} from "../../domain/ResultadosElectorais";
+import {useResultadosCandidaturasStore} from "../../../domain/ResultadosElectorais";
+import {GraficoResultadosCandidaturas} from "./GraficoResultadosCandidaturas";
 
 export function ResultadosCandidaturas(props: {id: number}) {
     const {data: resultados} = useResultadosCandidaturasStore(props.id);
 
     return (
         <TableContainer>
+            <GraficoResultadosCandidaturas data={resultados} />
             <Table>
                 <TableHead>
                     <TableRow>
