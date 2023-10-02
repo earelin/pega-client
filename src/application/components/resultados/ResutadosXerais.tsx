@@ -1,5 +1,4 @@
 import {Grid, Stack, Typography} from "@mui/material";
-import {sum} from "../../../commons/math";
 import {useResultadosElectoraisStore} from "../../../domain/ResultadosElectorais";
 
 export function ResutadosXerais(props: { id: number }) {
