@@ -42,7 +42,7 @@ describe('ProcesoElectoralDetails Component', () => {
             .mockReturnValue(PROCESO_ELECTORAL_WITHOUT_AMBITO);
 
         render(<BrowserRouter><ProcesoElectoralDetails id={1} /></BrowserRouter>);
-    })
+    });
 });
 
 const PROCESO_ELECTORAL_WITH_AMBITO = {
