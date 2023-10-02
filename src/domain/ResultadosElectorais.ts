@@ -1,17 +1,35 @@
 import {Candidatura} from "./Candidatura";
+import {useQuery} from "@tanstack/react-query";
+import {
+    findResultadoCandidaturasByProceso,
+    findResultadoXeralByProceso
+} from "../infrastructure/pega/ResultadosElectoraisRepository";
 
-export interface ResultadosElectorais {
-    votantesPrimerAvanceParticipacion: number;
+export interface ResultadoElectoral {
+    votantesPrimeiroAvanceParticipacion: number;
     votantesSegundoAvanceParticipacion: number;
     votantesCere: number;
-    votosEnBlanco: number;
+    votosBranco: number;
     votosNulos: number;
-    votosACandaturas: number;
-    votosPorCandidatura: ResultadosCandidatura[];
+    votosCandidaturas: number;
 }
 
-export interface ResultadosCandidatura {
+export interface ResultadoCandidatura {
     candidatura: Candidatura;
     representantesEleitos: number;
     votos: number;
+}
+
+export function useResultadosElectoraisStore(id: number) {
+    return useQuery({
+        queryKey: ['resultados-electorais-xerais'],
+        queryFn: () => findResultadoXeralByProceso(id),
+    });
+}
+
+export function useResultadosCandidaturasStore(id: number) {
+    return useQuery({
+        queryKey: ['resultados-electorais-candidaturas'],
+        queryFn: () => findResultadoCandidaturasByProceso(id),
+    });
 }

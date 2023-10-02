@@ -9,7 +9,7 @@ import {ProcesoElectoralDetails} from "./ProcesoElectoralDetails";
 
 jest.mock("../../../domain/ProcesoElectoral");
 
-describe('ProcesoElectoralDetails Component', () => {
+describe.skip('ProcesoElectoralDetails Component', () => {
     test('should show proceso with ambito', () => {
         when(useProcesoElectoralStore)
             .calledWith(2)

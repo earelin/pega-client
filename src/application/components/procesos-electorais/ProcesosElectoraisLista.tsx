@@ -2,14 +2,14 @@ import {
     useProcesosElectoraisStore
 } from "../../../domain/ProcesoElectoral";
 import {Link as RouterLink} from "react-router-dom";
-import {Link, List, ListItem} from "@mui/material";
+import {Link, List, ListItem, Typography} from "@mui/material";
 
 export function ProcesosElectoraisLista() {
     const {data} = useProcesosElectoraisStore();
 
     return (
         <>
-            <h1>Procesos Electorais</h1>
+            <Typography variant="h3" component="h1">Procesos Electorais</Typography>
             <List>
                 {data?.map(proceso => (
                     <ListItem key={proceso.id}>
