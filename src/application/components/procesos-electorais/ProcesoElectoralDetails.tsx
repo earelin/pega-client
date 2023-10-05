@@ -20,8 +20,6 @@ export function ProcesoElectoralDetails(props: {id: number}) {
             </Typography>
             <DatosXeraisProcesoElectoral id={props.id} />
             <Typography variant="h4" component="h2">Resultados</Typography>
-            <ResutadosXerais id={props.id} />
-            <ResultadosCandidaturas id={props.id} />
         </Stack>
     );
 }

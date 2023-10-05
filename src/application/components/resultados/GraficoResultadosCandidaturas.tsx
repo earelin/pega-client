@@ -25,7 +25,7 @@ export function GraficoResultadosCandidaturas(props: {data: ResultadoCandidatura
                 <Pie data={graphData} dataKey="votos" label={renderCustomizedLabel}>
                     {
                         graphData.map((entry, index) => (
-                            <Cell key={`cell-${entry.nome}`} fill={partidoColor(entry.nome)}/>
+                            <Cell key={`cell-${entry.nome}`} fill={ partidoColor(entry.nome)}/>
                         ))
                     }
                 </Pie>

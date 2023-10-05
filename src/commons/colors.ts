@@ -30,7 +30,42 @@ export function partidoColor(nome: string): string {
         return COLOR_PARTIDOS.PODEMOS;
     }
 
-    return COLORS[Math.floor(Math.random() * COLORS.length)]
+    return findDistinctColor(Object.values(COLOR_PARTIDOS));
+}
+
+function findDistinctColor(colors: string[]): string {
+    const color = COLORS[Math.floor(Math.random() * COLORS.length)]
+
+    if (colors.includes(color) && minColorDistance(color, colors) > 50) {
+        return findDistinctColor(colors);
+    }
+
+    return color;
+}
+
+function minColorDistance(color: string, colors: string[]) {
+    const rgb = hexToRgb(color);
+    const rgbColors = colors.map(hexToRgb);
+
+    const distances = rgbColors.map(rgbColor => {
+        const r = rgbColor.r - rgb.r;
+        const g = rgbColor.g - rgb.g;
+        const b = rgbColor.b - rgb.b;
+
+        return Math.sqrt(r * r + g * g + b * b);
+    });
+
+    return Math.min(...distances);
+}
+
+function hexToRgb(hex: string): { r: number, g: number, b: number } {
+    const bigint = parseInt(hex.replace('#', ''), 16);
+
+    return {
+        r: (bigint >> 16) & 255,
+        g: (bigint >> 8) & 255,
+        b: bigint & 255
+    };
 }
 
 const COLORS = [
