@@ -2,7 +2,7 @@ import {
     useProcesoElectoralStore
 } from "../../../domain/ProcesoElectoral";
 import {DatosXeraisProcesoElectoral} from "../DatosXeraisProcesoElectoral";
-import {Box, Container, Stack, Typography} from "@mui/material";
+import {Typography} from "@mui/material";
 import React from "react";
 
 export function ProcesoElectoralDetails(props: {id: number}) {

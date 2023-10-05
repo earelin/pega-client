@@ -1,5 +1,5 @@
 import {useDatosXeraisStore} from "../../domain/DatosXerais";
-import {Grid, Stack, Typography} from "@mui/material";
+import {Stack, Typography} from "@mui/material";
 import {sum} from "../../commons/math";
 
 export function DatosXeraisProcesoElectoral(props: { id: number }) {

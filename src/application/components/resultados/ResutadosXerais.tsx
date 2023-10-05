@@ -1,4 +1,4 @@
-import {Grid, Stack, Typography} from "@mui/material";
+import {Stack, Typography} from "@mui/material";
 import {useResultadosElectoraisStore} from "../../../domain/ResultadosElectorais";
 
 export function ResutadosXerais(props: { id: number }) {

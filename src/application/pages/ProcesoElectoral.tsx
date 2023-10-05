@@ -6,7 +6,7 @@ import {ResultadosCandidaturas} from "../components/resultados/ResultadosCandida
 import {Box, Tab, Tabs} from "@mui/material";
 import {ResultadosEntidade} from "../components/resultados/ResultadosEntidade";
 import {EntidadesAdministrativasForm} from "../components/EntidadesAdministrativasForm";
-import {EntidadeAdministrativa} from "../../domain/Concello";
+import {EntidadeAdministrativa} from "../../domain/EntidadeAdministrativa";
 
 export function ProcesoElectoral() {
     const {id} = useParams<"id">() as unknown as { id: number };
@@ -18,7 +18,7 @@ export function ProcesoElectoral() {
     };
 
     return <>
-         <Box>
+         <Box sx={{marginBottom: 2, marginTop: 1}}>
              <ProcesoElectoralDetails id={id}/>
              <Tabs value={currentTabIndex} onChange={handleTabChange}>
                   <Tab label="Resultados Xerais"/>
@@ -32,7 +32,7 @@ export function ProcesoElectoral() {
                 <ResultadosCandidaturas id={id}/>
             </Box>
         )}
-        {currentTabIndex === 0 && (
+        {currentTabIndex === 1 && (
             <Box>
                 <EntidadesAdministrativasForm setEntidate={setEntidade} />
                 <ResultadosEntidade entidade={entidade}/>
