@@ -16,11 +16,11 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-        <head>
-            <link rel="manifest" href="manifest.json" />
-        </head>
-        <body>
-        <AppRouterCacheProvider>
+            <head>
+                <link rel="manifest" href="manifest.json" />
+            </head>
+            <body>
+                <AppRouterCacheProvider options={{ enableCssLayer: true }}>
                     <ThemeProvider theme={theme}>
                         <CssBaseline />
                         {children}
