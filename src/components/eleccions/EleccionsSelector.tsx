@@ -59,6 +59,7 @@ function TipoSelector(props: {
                 name="tipo"
                 onChange={props.onChange}
                 defaultValue={0}
+                data-testid="tipo-selector"
             >
                 <MenuItem value="0">Todas</MenuItem>
                 {findAllTiposEleccions().map((tipo) => (
