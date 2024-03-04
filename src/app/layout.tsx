@@ -16,8 +16,11 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body>
-                <AppRouterCacheProvider>
+        <head>
+            <link rel="manifest" href="manifest.json" />
+        </head>
+        <body>
+        <AppRouterCacheProvider>
                     <ThemeProvider theme={theme}>
                         <CssBaseline />
                         {children}
