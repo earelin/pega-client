@@ -35,14 +35,16 @@ export default function EleccionsSelector() {
 }
 
 function EleccionsSelectorList(props: {
-    selected: EleccionsSelectorFormState;
+    readonly selected: EleccionsSelectorFormState;
 }) {
     return <div>{JSON.stringify(props.selected)}</div>;
 }
 
 function EleccionsSelectorForm(props: {
-    selectedElections: EleccionsSelectorFormState;
-    setSelectedElections: Dispatch<SetStateAction<EleccionsSelectorFormState>>;
+    readonly selectedElections: EleccionsSelectorFormState;
+    readonly setSelectedElections: Dispatch<
+        SetStateAction<EleccionsSelectorFormState>
+    >;
 }) {
     const handleChange = (event: SelectChangeEvent<number>) => {
         const { name, value } = event.target;
@@ -68,7 +70,7 @@ function EleccionsSelectorForm(props: {
 }
 
 function TipoSelector(props: {
-    onChange: (event: SelectChangeEvent<number>) => void;
+    readonly onChange: (event: SelectChangeEvent<number>) => void;
 }) {
     return (
         <FormControl fullWidth={true}>
@@ -94,7 +96,7 @@ function TipoSelector(props: {
 }
 
 function ComunidadeAutonomaSelector(props: {
-    onChange: (event: SelectChangeEvent<number>) => void;
+    readonly onChange: (event: SelectChangeEvent<number>) => void;
 }) {
     return (
         <FormControl fullWidth={true}>

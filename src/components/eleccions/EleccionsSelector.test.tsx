@@ -1,9 +1,5 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import EleccionsSelectorForm, {
-    EleccionsSelectorFormState,
-} from '@/components/eleccions/EleccionsSelector';
-import { useState } from 'react';
 import EleccionsSelector from '@/components/eleccions/EleccionsSelector';
 
 describe('EleccionsSelector', () => {
