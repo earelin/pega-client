@@ -1,10 +1,14 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import EleccionsSelectorForm from '@/components/eleccions/EleccionsSelector';
+import EleccionsSelectorForm, {
+    EleccionsSelectorFormState,
+} from '@/components/eleccions/EleccionsSelector';
+import { useState } from 'react';
+import EleccionsSelector from '@/components/eleccions/EleccionsSelector';
 
 describe('EleccionsSelector', () => {
     it('renders', () => {
-        render(<EleccionsSelectorForm />);
+        render(<EleccionsSelector />);
 
         const tipoSelector = screen.getByTestId('tipo-selector');
 

@@ -6,7 +6,7 @@ export default function Home() {
         <main>
             <Container maxWidth="lg">
                 <Title />
-                <EleccionsSelector />
+                <EleccionsSelectorBlock />
             </Container>
         </main>
     );
@@ -23,7 +23,7 @@ function Title() {
     );
 }
 
-function EleccionsSelector() {
+function EleccionsSelectorBlock() {
     return (
         <Box sx={{ marginBottom: '3rem' }}>
             <Typography variant="h5" component="h2" gutterBottom>

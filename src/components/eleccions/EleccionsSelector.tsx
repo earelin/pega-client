@@ -9,23 +9,47 @@ import {
 } from '@mui/material';
 import { findAllTiposEleccions } from '@/domain/eleccions/tipo-eleccions';
 import { findAllComunidadesAutonomas } from '@/domain/eleccions/division-administrativa';
-import { useState } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 
-interface EleccionsSelectorFormState {
+export interface EleccionsSelectorFormState {
     tipo: number;
     ambito: number;
 }
 
-export default function EleccionsSelectorForm() {
-    const [formData, setFormData] = useState<EleccionsSelectorFormState>({
-        tipo: 0,
-        ambito: 0,
-    });
+export default function EleccionsSelector() {
+    const [selectedElections, setSelectedElections] =
+        useState<EleccionsSelectorFormState>({
+            tipo: 0,
+            ambito: 0,
+        });
 
+    return (
+        <>
+            <EleccionsSelectorForm
+                selectedElections={selectedElections}
+                setSelectedElections={setSelectedElections}
+            />
+            <EleccionsSelectorList selected={selectedElections} />
+        </>
+    );
+}
+
+function EleccionsSelectorList(props: {
+    selected: EleccionsSelectorFormState;
+}) {
+    return <div>{JSON.stringify(props.selected)}</div>;
+}
+
+function EleccionsSelectorForm(props: {
+    selectedElections: EleccionsSelectorFormState;
+    setSelectedElections: Dispatch<SetStateAction<EleccionsSelectorFormState>>;
+}) {
     const handleChange = (event: SelectChangeEvent<number>) => {
-        console.log(event);
         const { name, value } = event.target;
-        setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+        props.setSelectedElections((prevState) => ({
+            ...prevState,
+            [name]: value,
+        }));
     };
 
     return (
@@ -34,14 +58,11 @@ export default function EleccionsSelectorForm() {
                 <TipoSelector onChange={handleChange} />
             </Grid>
             <Grid item xs={12} md={6}>
-                {formData.tipo === 3 && (
-                    <ComunidadeAutonomaSelector
-                        disabled={formData.tipo !== 3}
-                        onChange={handleChange}
-                    />
+                {props.selectedElections.tipo === 3 && (
+                    <ComunidadeAutonomaSelector onChange={handleChange} />
                 )}
             </Grid>
-            <div>Form Data: {JSON.stringify(formData)}</div>
+            <div>Form Data: {JSON.stringify(props.selectedElections)}</div>
         </Grid>
     );
 }
@@ -73,11 +94,10 @@ function TipoSelector(props: {
 }
 
 function ComunidadeAutonomaSelector(props: {
-    disabled: boolean;
     onChange: (event: SelectChangeEvent<number>) => void;
 }) {
     return (
-        <FormControl fullWidth={true} disabled={props.disabled}>
+        <FormControl fullWidth={true}>
             <InputLabel id="eleccions-selector-ambito-label">
                 Comunidade Autónoma
             </InputLabel>
