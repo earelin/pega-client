@@ -10,6 +10,7 @@ import {
 import { findAllTiposEleccions } from '@/domain/eleccions/tipo-eleccions';
 import { findAllComunidadesAutonomas } from '@/domain/eleccions/division-administrativa';
 import { Dispatch, SetStateAction, useState } from 'react';
+import { useEleccionsList } from '@/domain/eleccions/eleccions';
 
 export interface EleccionsSelectorFormState {
     tipo: number;
@@ -37,7 +38,8 @@ export default function EleccionsSelector() {
 function EleccionsSelectorList(props: {
     readonly selected: EleccionsSelectorFormState;
 }) {
-    return <div>{JSON.stringify(props.selected)}</div>;
+    const { eleccions, isLoading, isError } = useEleccionsList(props.selected);
+    return <div>{JSON.stringify([eleccions, isLoading, isError])}</div>;
 }
 
 function EleccionsSelectorForm(props: {
