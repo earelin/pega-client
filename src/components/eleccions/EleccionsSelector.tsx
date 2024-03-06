@@ -5,7 +5,8 @@ import {
     InputLabel,
     MenuItem,
     Select,
-    SelectChangeEvent, Stack
+    SelectChangeEvent,
+    Stack,
 } from '@mui/material';
 import { findAllTiposEleccions } from '@/domain/eleccions/tipo-eleccions';
 import { findAllComunidadesAutonomas } from '@/domain/eleccions/division-administrativa';
