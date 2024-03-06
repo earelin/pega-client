@@ -42,7 +42,15 @@ function EleccionsSelectorList(props: {
     const { eleccions, isLoading, isError } = useEleccionsList(props.selected);
     return (
         <div>
-            <code>{JSON.stringify([eleccions, isLoading, isError], null)}</code>
+            {isLoading && <p>Loading...</p>}
+            {isError && <p>Error</p>}
+            {eleccions && (
+                <ul>
+                    {eleccions.map((election) => (
+                        <li key={election.id}>{election.date}</li>
+                    ))}
+                </ul>
+            )}
         </div>
     );
 }
@@ -57,7 +65,7 @@ function EleccionsSelectorForm(props: {
         const { name, value } = event.target;
         props.setSelectedElections((prevState) => ({
             ...prevState,
-            [name]: value,
+            [name]: parseInt(value as string),
         }));
     };
 

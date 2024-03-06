@@ -7,10 +7,14 @@ interface EleccionsFilter {
 
 export function useEleccionsList(filter: EleccionsFilter) {
     const eleccionsFetcher = async (url: string, f: EleccionsFilter) => {
-        const params = new URLSearchParams({
-            tipo: f.tipo.toString(),
-            ambito: f.ambito.toString(),
-        });
+        const params = new URLSearchParams();
+        if (f.tipo !== 0) {
+            params.append('tipo', f.tipo.toString());
+        }
+        if (f.ambito !== 0) {
+            params.append('ambito', f.ambito.toString());
+        }
+
         const requestUrl = params.size === 0 ? url : `${url}?${params}`;
         const response = await fetch(requestUrl);
         return response.json();
@@ -18,7 +22,7 @@ export function useEleccionsList(filter: EleccionsFilter) {
 
     const { data, error, isLoading } = useSWR(
         ['/api/eleccions', filter],
-        ([url, filter]) => eleccionsFetcher(url, filter),
+        async ([url, filter]) => await eleccionsFetcher(url, filter),
     );
 
     return {
