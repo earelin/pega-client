@@ -1,0 +1,80 @@
+{
+  "uuid": "4434dc29-326a-42d8-9f60-c7f01573b36d",
+  "lastMigration": 32,
+  "name": "Mockoon",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 9000,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "3266862b-b969-4d3e-932c-bc65ad5affe8",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "eleccions",
+      "responses": [
+        {
+          "uuid": "4acc4d0e-883c-44bc-926f-2093d88b4b0e",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "3266862b-b969-4d3e-932c-bc65ad5affe8"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [],
+  "callbacks": []
+}

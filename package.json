@@ -7,6 +7,7 @@
     "build": "next build",
     "format": "prettier --write public src",
     "lint": "next lint",
+    "mock": "mockoon-cli start --data mockoon.json",
     "start": "next start",
     "test": "jest --watch",
     "test:ci": "jest --ci"
@@ -25,6 +26,7 @@
     "swr": "^2.2.5"
   },
   "devDependencies": {
+    "@mockoon/cli": "^7.0.0",
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^14.2.1",
     "@types/jest": "^29.5.12",

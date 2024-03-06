@@ -5,7 +5,7 @@ import {
     InputLabel,
     MenuItem,
     Select,
-    SelectChangeEvent,
+    SelectChangeEvent, Stack
 } from '@mui/material';
 import { findAllTiposEleccions } from '@/domain/eleccions/tipo-eleccions';
 import { findAllComunidadesAutonomas } from '@/domain/eleccions/division-administrativa';
@@ -25,13 +25,13 @@ export default function EleccionsSelector() {
         });
 
     return (
-        <>
+        <Stack spacing={2}>
             <EleccionsSelectorForm
                 selectedElections={selectedElections}
                 setSelectedElections={setSelectedElections}
             />
             <EleccionsSelectorList selected={selectedElections} />
-        </>
+        </Stack>
     );
 }
 
@@ -39,7 +39,11 @@ function EleccionsSelectorList(props: {
     readonly selected: EleccionsSelectorFormState;
 }) {
     const { eleccions, isLoading, isError } = useEleccionsList(props.selected);
-    return <div>{JSON.stringify([eleccions, isLoading, isError])}</div>;
+    return (
+        <div>
+            <code>{JSON.stringify([eleccions, isLoading, isError], null)}</code>
+        </div>
+    );
 }
 
 function EleccionsSelectorForm(props: {
@@ -66,7 +70,6 @@ function EleccionsSelectorForm(props: {
                     <ComunidadeAutonomaSelector onChange={handleChange} />
                 )}
             </Grid>
-            <div>Form Data: {JSON.stringify(props.selectedElections)}</div>
         </Grid>
     );
 }
