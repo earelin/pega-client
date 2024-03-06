@@ -46,7 +46,7 @@ function EleccionsSelectorList(props: {
             {isError && <p>Error</p>}
             {eleccions && (
                 <ul>
-                    {eleccions.map((election) => (
+                    {eleccions.map((election: { id: number; date: string }) => (
                         <li key={election.id}>{election.date}</li>
                     ))}
                 </ul>
