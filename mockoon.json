@@ -46,9 +46,84 @@
       "responses": [
         {
           "uuid": "d49636d5-7cb1-44b0-9099-f8bcd1fb71a3",
-          "body": "[\n  {\n    \"id\": 1,\n    \"nome\": \"Partido Popular\",\n    \"logo\": \"pp.svg\"\n  }, \n  {\n    \"id\": 2,\n    \"nome\": \"Bloque Nacionalista Galego\",\n    \"logo\": \"bng.svg\"\n  }, \n  {\n    \"id\": 3,\n    \"nome\": \"Partido Socialista de Galicia\",\n    \"logo\": \"psdeg.svg\"\n  }\n]\n",
+          "body": "[\n  {\n    \"id\": 1,\n    \"nome\": \"Partido Popular\",\n    \"logo\": \"pp.svg\"\n  }, \n  {\n    \"id\": 2,\n    \"nome\": \"Bloque Nacionalista Galego\",\n    \"logo\": \"bng.svg\"\n  }, \n  {\n    \"id\": 3,\n    \"nome\": \"Partido Socialista de Galicia\",\n    \"logo\": \"psdeg.svg\"\n  },\n  {\n    \"id\": 4,\n    \"nome\": \"Democracia Ourensana\",\n    \"logo\": \"do.png\"\n  },\n  {\n    \"id\": 5,\n    \"nome\": \"VOX\",\n    \"logo\": \"vox.svg\"\n  },\n  {\n    \"id\": 6,\n    \"nome\": \"Sumar Galicia\",\n    \"logo\": \"sumar-g.svg\"\n  },\n  {\n    \"id\": 7,\n    \"nome\": \"PACMA\",\n    \"logo\": \"pacma.svg\"\n  },\n  {\n    \"id\": 8,\n    \"nome\": \"Podemos\",\n    \"logo\": \"podemos.svg\"\n  }\n]\n",
           "latency": 0,
           "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "f3577af7-0874-46bc-844a-8afd14b4139d",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "axentes/:id",
+      "responses": [
+        {
+          "uuid": "c4422b7f-8e19-4026-87ee-ce304c50a05c",
+          "body": "{\n  \"id\": 1,\n  \"nome\": \"Partido Popular\",\n  \"logo\": \"pp.svg\"\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "id",
+              "value": "1",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "2903684f-95ea-4255-b5fa-aa095e489c2c",
+          "body": "{\n  \"id\": 2,\n  \"nome\": \"Bloque Nacionalista Galego\",\n  \"logo\": \"bng.svg\"\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "611833d0-f28e-4d9b-9fc0-d3e8d3957bd1",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 404,
           "label": "",
           "headers": [],
           "bodyType": "INLINE",
@@ -75,6 +150,10 @@
     {
       "type": "route",
       "uuid": "07adb3fc-abad-4d30-893f-0f75f49401f2"
+    },
+    {
+      "type": "route",
+      "uuid": "f3577af7-0874-46bc-844a-8afd14b4139d"
     }
   ],
   "proxyMode": false,
