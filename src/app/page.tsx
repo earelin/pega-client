@@ -1,5 +1,6 @@
-import { Container, Box, Typography } from '@mui/material';
+import { Container, Box, Typography, Grid } from '@mui/material';
 import EleccionsSelectorForm from '@/components/eleccions/EleccionsSelector';
+import AxentesSelector from '@/components/axentes/AxentesSelector';
 
 export default function Home() {
     return (
@@ -7,9 +8,14 @@ export default function Home() {
             <Box sx={{ marginBottom: '3rem' }}>
                 <Title />
             </Box>
-            <Box sx={{ marginBottom: '3rem' }}>
-                <EleccionsSelectorForm />
-            </Box>
+            <Grid container columnSpacing={2}>
+                <Grid item xs={12} md={6}>
+                    <EleccionsSelectorForm />
+                </Grid>
+                <Grid item xs={12} md={6}>
+                    <AxentesSelector />
+                </Grid>
+            </Grid>
         </main>
     );
 }
