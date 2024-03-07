@@ -8,3 +8,8 @@ export function findAllTiposEleccions(): BasicEntity[] {
         { id: 2, label: 'Municipais' },
     ];
 }
+
+export function findTipoEleccionsById(id: number): BasicEntity | null {
+    const eleccion = findAllTiposEleccions().find((tipo) => tipo.id === id);
+    return eleccion ? eleccion : null;
+}

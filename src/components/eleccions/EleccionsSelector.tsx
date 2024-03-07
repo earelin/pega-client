@@ -3,6 +3,8 @@ import {
     FormControl,
     Grid,
     InputLabel,
+    List,
+    ListItemButton,
     MenuItem,
     Select,
     SelectChangeEvent,
@@ -45,11 +47,13 @@ function EleccionsSelectorList(props: {
             {isLoading && <p>Loading...</p>}
             {isError && <p>Error</p>}
             {eleccions && (
-                <ul>
+                <List>
                     {eleccions.map((election: { id: number; date: string }) => (
-                        <li key={election.id}>{election.date}</li>
+                        <ListItemButton key={election.id}>
+                            {election.date}
+                        </ListItemButton>
                     ))}
-                </ul>
+                </List>
             )}
         </div>
     );
