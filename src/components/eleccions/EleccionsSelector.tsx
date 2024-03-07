@@ -52,9 +52,9 @@ function EleccionsSelectorList(props: {
                     {eleccions.map((eleccion) => (
                         <ListItemButton key={eleccion.id}>
                             <Link href={`/eleccions/${eleccion.id}`}>
-                                {eleccion.data} - {eleccion.tipo.label}
+                                {eleccion.data} - {eleccion.tipo.nome}
                                 {eleccion.ambito &&
-                                    ` - ${eleccion.ambito.label}`}
+                                    ` - ${eleccion.ambito.nome}`}
                             </Link>
                         </ListItemButton>
                     ))}
@@ -110,7 +110,7 @@ function TipoSelector(props: {
                 <MenuItem value="0">Todas</MenuItem>
                 {findAllTiposEleccions().map((tipo) => (
                     <MenuItem key={tipo.id} value={tipo.id}>
-                        {tipo.label}
+                        {tipo.nome}
                     </MenuItem>
                 ))}
             </Select>
@@ -137,7 +137,7 @@ function ComunidadeAutonomaSelector(props: {
                 <MenuItem value="0">Todas</MenuItem>
                 {findAllComunidadesAutonomas().map((comunidad) => (
                     <MenuItem key={comunidad.id} value={comunidad.id}>
-                        {comunidad.label}
+                        {comunidad.nome}
                     </MenuItem>
                 ))}
             </Select>

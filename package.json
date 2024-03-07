@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "format": "prettier --write public src",
-    "lint": "next lint",
+    "lint": "next lint && tsc --noEmit",
     "mock": "mockoon-cli start --data mockoon.json",
     "start": "next start",
     "test": "jest --watch",

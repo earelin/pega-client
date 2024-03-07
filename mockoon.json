@@ -36,12 +36,45 @@
         }
       ],
       "responseMode": null
+    },
+    {
+      "uuid": "07adb3fc-abad-4d30-893f-0f75f49401f2",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "axentes",
+      "responses": [
+        {
+          "uuid": "d49636d5-7cb1-44b0-9099-f8bcd1fb71a3",
+          "body": "[\n  {\n    \"id\": 1,\n    \"nome\": \"Partido Popular\",\n  }, \n  {\n    \"id\": 2,\n    \"nome\": \"Bloque Nacionalista Galego\"\n  }, \n  {\n    \"id\": 3,\n    \"nome\": \"Partido Socialista de Galicia\"\n  }\n]\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
     }
   ],
   "rootChildren": [
     {
       "type": "route",
       "uuid": "3266862b-b969-4d3e-932c-bc65ad5affe8"
+    },
+    {
+      "type": "route",
+      "uuid": "07adb3fc-abad-4d30-893f-0f75f49401f2"
     }
   ],
   "proxyMode": false,

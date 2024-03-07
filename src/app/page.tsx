@@ -4,30 +4,23 @@ import EleccionsSelectorForm from '@/components/eleccions/EleccionsSelector';
 export default function Home() {
     return (
         <main>
-            <Title />
-            <EleccionsSelectorBlock />
+            <Box sx={{ marginBottom: '3rem' }}>
+                <Title />
+            </Box>
+            <Box sx={{ marginBottom: '3rem' }}>
+                <EleccionsSelectorForm />
+            </Box>
         </main>
     );
 }
 
 function Title() {
     return (
-        <Box sx={{ marginBottom: '3rem' }}>
+        <>
             <Typography variant="h2" component="h1">
                 Pega
             </Typography>
             <Typography variant="body1">Estatísticas electoráis</Typography>
-        </Box>
-    );
-}
-
-function EleccionsSelectorBlock() {
-    return (
-        <Box sx={{ marginBottom: '3rem' }}>
-            <Typography variant="h5" component="h2" gutterBottom>
-                Eleccións
-            </Typography>
-            <EleccionsSelectorForm />
-        </Box>
+        </>
     );
 }

@@ -15,7 +15,7 @@ describe('Divisions Administrativas', () => {
 
             const result = findComunidadesAutonomasById(id);
 
-            expect(result).toEqual({ id: 1, label: 'Andalucía' });
+            expect(result).toEqual({ id: 1, nome: 'Andalucía' });
         });
     });
 });

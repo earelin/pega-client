@@ -15,7 +15,11 @@ describe('Tipo Eleccions', () => {
 
             const result = findTipoEleccionsById(id);
 
-            expect(result).toEqual({ id: 2, label: 'Xerais' });
+            expect(result).toEqual({
+                id: 2,
+                nome: 'Xerais',
+                color: 'secondary',
+            });
         });
     });
 });

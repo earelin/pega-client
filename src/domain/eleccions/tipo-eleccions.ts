@@ -1,10 +1,10 @@
 import { BasicEntity } from '@/domain/BasicEntity';
 
 const TIPO_ELECCIONS: BasicEntity[] = [
-    { id: 1, label: 'Europeas' },
-    { id: 2, label: 'Xerais' },
-    { id: 3, label: 'Autonómicas' },
-    { id: 4, label: 'Municipais' },
+    { id: 1, nome: 'Europeas', color: 'primary' },
+    { id: 2, nome: 'Xerais', color: 'secondary' },
+    { id: 3, nome: 'Autonómicas', color: 'success' },
+    { id: 4, nome: 'Municipais', color: 'warning' },
 ];
 
 export function findAllTiposEleccions(): BasicEntity[] {

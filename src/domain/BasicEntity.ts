@@ -1,4 +1,5 @@
 export interface BasicEntity {
     id: number;
-    label: string;
+    nome: string;
+    color?: string;
 }
