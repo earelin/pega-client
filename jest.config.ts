@@ -7,6 +7,7 @@ const createJestConfig = nextJest({
 // Add any custom config to be passed to Jest
 const customJestConfig = {
     collectCoverage: true,
+    collectCoverageFrom: ['src/**/*.{ts,tsx}', '!**/*.test.{ts,tsx}'],
     // setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
     testEnvironment: 'jsdom',
 };

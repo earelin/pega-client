@@ -17,7 +17,7 @@
       "responses": [
         {
           "uuid": "4acc4d0e-883c-44bc-926f-2093d88b4b0e",
-          "body": "[\n  {\n    \"id\": 1,\n    \"date\": \"18/02/2024\",\n    \"tipo\": 3,\n    \"ambito\": 11\n  },\n  {\n    \"id\": 2,\n    \"date\": \"23/07/2023\",\n    \"tipo\": 1,\n    \"ambito\": null\n  }\n]",
+          "body": "[\n  {\n    \"id\": 1,\n    \"data\": \"18/02/2024\",\n    \"tipo\": 3,\n    \"ambito\": 11\n  },\n  {\n    \"id\": 2,\n    \"data\": \"23/07/2023\",\n    \"tipo\": 1,\n    \"ambito\": null\n  }\n]",
           "latency": 0,
           "statusCode": 200,
           "label": "",

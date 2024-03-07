@@ -23,3 +23,10 @@ export function findAllComunidadesAutonomas(): BasicEntity[] {
         { id: 19, label: 'Melilla' },
     ].sort((a, b) => a.label.localeCompare(b.label));
 }
+
+export function findComunidadesAutonomasById(id: number): BasicEntity | null {
+    const comunidade = findAllComunidadesAutonomas().find(
+        (comunidad) => comunidad.id === id,
+    );
+    return comunidade ? comunidade : null;
+}

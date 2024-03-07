@@ -1,6 +1,23 @@
 import useSWR from 'swr';
+import { BasicEntity } from '@/domain/BasicEntity';
+import { findTipoEleccionsById } from '@/domain/eleccions/tipo-eleccions';
+import { findComunidadesAutonomasById } from '@/domain/eleccions/division-administrativa';
 
-interface EleccionsFilter {
+export interface Eleccion {
+    id: number;
+    data: string;
+    tipo: BasicEntity;
+    ambito: BasicEntity;
+}
+
+export interface EleccionsFilter {
+    tipo: number;
+    ambito: number;
+}
+
+interface EleccionRaw {
+    id: number;
+    data: string;
     tipo: number;
     ambito: number;
 }
@@ -17,7 +34,18 @@ export function useEleccionsList(filter: EleccionsFilter) {
 
         const requestUrl = params.size === 0 ? url : `${url}?${params}`;
         const response = await fetch(requestUrl);
-        return response.json();
+        const eleccionsRaw = (await response.json()) as EleccionRaw[];
+        return eleccionsRaw.map(
+            (eleccionRaw) =>
+                ({
+                    id: eleccionRaw.id,
+                    data: eleccionRaw.data,
+                    tipo: findTipoEleccionsById(eleccionRaw.tipo),
+                    ambito: eleccionRaw.ambito
+                        ? findComunidadesAutonomasById(eleccionRaw.ambito)
+                        : null,
+                }) as Eleccion,
+        );
     };
 
     const { data, error, isLoading } = useSWR(

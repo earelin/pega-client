@@ -13,7 +13,7 @@ import {
 import { findAllTiposEleccions } from '@/domain/eleccions/tipo-eleccions';
 import { findAllComunidadesAutonomas } from '@/domain/eleccions/division-administrativa';
 import { Dispatch, SetStateAction, useState } from 'react';
-import { useEleccionsList } from '@/domain/eleccions/eleccions';
+import { Eleccion, useEleccionsList } from '@/domain/eleccions/eleccions';
 
 export interface EleccionsSelectorFormState {
     tipo: number;
@@ -48,9 +48,10 @@ function EleccionsSelectorList(props: {
             {isError && <p>Error</p>}
             {eleccions && (
                 <List>
-                    {eleccions.map((election: { id: number; date: string }) => (
-                        <ListItemButton key={election.id}>
-                            {election.date}
+                    {eleccions.map((eleccion) => (
+                        <ListItemButton key={eleccion.id}>
+                            {eleccion.data} - {eleccion.tipo.label}
+                            {eleccion.ambito && ` - ${eleccion.ambito.label}`}
                         </ListItemButton>
                     ))}
                 </List>
