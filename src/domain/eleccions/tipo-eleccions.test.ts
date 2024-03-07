@@ -11,11 +11,11 @@ describe('Tipo Eleccions', () => {
         });
 
         it('should return the tipo when id is found', () => {
-            const id = 1;
+            const id = 2;
 
             const result = findTipoEleccionsById(id);
 
-            expect(result).toEqual({ id: 1, label: 'Xerais' });
+            expect(result).toEqual({ id: 2, label: 'Xerais' });
         });
     });
 });

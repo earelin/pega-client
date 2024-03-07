@@ -3,6 +3,7 @@ import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import theme from '../theme';
+import { Container } from '@mui/material';
 
 export const metadata: Metadata = {
     title: 'Pega',
@@ -23,7 +24,7 @@ export default function RootLayout({
                 <AppRouterCacheProvider options={{ enableCssLayer: true }}>
                     <ThemeProvider theme={theme}>
                         <CssBaseline />
-                        {children}
+                        <Container maxWidth="lg">{children}</Container>
                     </ThemeProvider>
                 </AppRouterCacheProvider>
             </body>

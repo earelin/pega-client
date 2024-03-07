@@ -4,10 +4,8 @@ import EleccionsSelectorForm from '@/components/eleccions/EleccionsSelector';
 export default function Home() {
     return (
         <main>
-            <Container maxWidth="lg">
-                <Title />
-                <EleccionsSelectorBlock />
-            </Container>
+            <Title />
+            <EleccionsSelectorBlock />
         </main>
     );
 }
