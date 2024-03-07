@@ -46,7 +46,7 @@
       "responses": [
         {
           "uuid": "d49636d5-7cb1-44b0-9099-f8bcd1fb71a3",
-          "body": "[\n  {\n    \"id\": 1,\n    \"nome\": \"Partido Popular\",\n  }, \n  {\n    \"id\": 2,\n    \"nome\": \"Bloque Nacionalista Galego\"\n  }, \n  {\n    \"id\": 3,\n    \"nome\": \"Partido Socialista de Galicia\"\n  }\n]\n",
+          "body": "[\n  {\n    \"id\": 1,\n    \"nome\": \"Partido Popular\",\n    \"logo\": \"pp.svg\"\n  }, \n  {\n    \"id\": 2,\n    \"nome\": \"Bloque Nacionalista Galego\",\n    \"logo\": \"bng.svg\"\n  }, \n  {\n    \"id\": 3,\n    \"nome\": \"Partido Socialista de Galicia\",\n    \"logo\": \"psdeg.svg\"\n  }\n]\n",
           "latency": 0,
           "statusCode": 200,
           "label": "",
